@@ -1,6 +1,8 @@
 Convert Media Tags to Markup for Drupal 8
 =====
 
+[![CircleCI](https://circleci.com/gh/dcycle/convert_media_tags_to_markup.svg?style=svg)](https://circleci.com/gh/dcycle/convert_media_tags_to_markup)
+
 A Drupal 8 module which fixes legacy code such as:
 
     [[{"type":"media","view_mode":"media_large","fid":"403","attributes":{"alt":"","class":"media-image","height":"187","style":"display: block; margin-left: auto; margin-right: auto;","typeof":"foaf:Image","width":"480"}}]]
