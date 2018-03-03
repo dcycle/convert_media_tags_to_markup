@@ -41,6 +41,10 @@ Note that [Files that have no remaining usages are no longer deleted by default]
 Development
 -----
 
+The code is available on [GitHub](https://github.com/dcycle/convert_media_tags_to_markup) and [Drupal.org](https://www.drupal.org/project/convert_media_tags_to_markup).
+
+Automated testing is on [CircleCI](https://circleci.com/gh/dcycle/convert_media_tags_to_markup).
+
 Install Docker and run `./scripts/deploy.sh`.
 
 Resources
