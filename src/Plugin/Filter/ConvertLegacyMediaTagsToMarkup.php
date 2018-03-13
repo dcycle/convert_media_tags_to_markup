@@ -96,7 +96,7 @@ class ConvertLegacyMediaTagsToMarkup extends FilterBase {
    * {@inheritdoc}
    */
   public function tips($long = FALSE) {
-    return '<p>Coverts legacy imoprted media tags to images.</p>';
+    return '<p>Coverts legacy imported media tags to images.</p>';
   }
 
   /**
@@ -135,11 +135,13 @@ class ConvertLegacyMediaTagsToMarkup extends FilterBase {
       $title = $alt;
       $height = empty($tag_info['attributes']['height']) ? '' : 'height="' . $tag_info['attributes']['height'] . '"';
       $width = empty($tag_info['attributes']['width']) ? '' : 'width="' . $tag_info['attributes']['width'] . '"';
+      $class = empty($tag_info['attributes']['class']) ? '' : $tag_info['attributes']['class'];
+      $style = empty($tag_info['attributes']['style']) ? '' : $tag_info['attributes']['style'];
       $output = '
       <div class="media media-element-container media-default">
         <div id="file-' . $tag_info['fid'] . '" class="file file-image">
           <div class="content">
-            <img alt="' . $alt . '" title="' . $title . '" class="media-element  file-default" src="' . $filepath . '" ' . $height . ' ' . $width . '>
+            <img style="' . $style . '" alt="' . $alt . '" title="' . $title . '" class="' . $class . '" src="' . $filepath . '" ' . $height . ' ' . $width . '>
           </div>
         </div>
       </div>';
