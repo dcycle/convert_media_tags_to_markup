@@ -24,7 +24,7 @@ If you want to evaluate this module before using it:
 * After a few minutes, the script should give you a login link to a local development environment. Go there.
 * In /node/add/article, create an article with an image, this will be your file entity.
 * Go to /admin/content/files and hover over "1 place"; you will see something like "/admin/content/files/usage/1". In this example 1 is your file id, or fid. Keep note of the fid.
-* Go to /node/add/page and enter some sample code with fid 1, this is meant to simulate what you would get after an import from Drupa 7: `[[{"type":"media","view_mode":"media_large","fid":"1","attributes":{"alt":"","class":"media-image","height":"187","style":"display: block; margin-left: auto; margin-right: auto;","typeof":"foaf:Image","width":"480"}}]]`
+* Go to /node/add/page and enter some sample code with fid 1, this is meant to simulate what you would get after an import from Drupal 7: `[[{"type":"media","view_mode":"media_large","fid":"1","attributes":{"alt":"","class":"media-image","height":"187","style":"display: block; margin-left: auto; margin-right: auto;","typeof":"foaf:Image","width":"480"}}]]`
 * Use the text format Full HTML.
 * Save; we will assume this is /node/2.
 * Go to /admin/config/content/formats/manage/full_html.
@@ -37,6 +37,23 @@ File objects must exist
 When you import files from Drupal 7, these files will have their own entries in /admin/content/files. Many will be said to exist in "0 places" once you import them; these are probably the ones which are embedded using the Media module in D7.
 
 Note that [Files that have no remaining usages are no longer deleted by default](https://www.drupal.org/node/2891902), so this should not be a problem.
+
+Permanently change code to images
+-----
+
+Some users might find the code daunting, so you might want to change all such code to actual images not in the text filter, but in the database itself. To do so:
+
+* **Back up your database**;
+* In `/admin/structure/types/manage/YOUR_CONTENT_TYPE`'s publishing options, check "Create new revision", this will allow you to revert changes in case something goes wrong;
+* Run the following in _simulation mode_ (this is an example to change only pages, but you can apply it to any entity type and bundle):
+
+    drush ev "\Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup\DbReplacer::instance()->replaceAll('node', 'page', TRUE)";
+
+* Run the following in _live mode_ (this is an example to change only pages, but you can apply it to any entity type and bundle):
+
+    drush ev "\Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup\DbReplacer::instance()->replaceAll('node', 'page', FALSE)";
+
+* Make sure everything works; if not revert your database or revert to previous revisions of specific nodes.
 
 Development
 -----
