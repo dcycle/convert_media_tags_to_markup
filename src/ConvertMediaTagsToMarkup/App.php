@@ -91,8 +91,8 @@ class App {
       </div>';
       return $output;
     }
-    catch (\Exception $e) {
-      $this->watchdogException($e);
+    catch (\Throwable $t) {
+      $this->watchdogThrowable($t);
       return '';
     }
   }
