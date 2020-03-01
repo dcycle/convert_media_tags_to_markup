@@ -74,7 +74,7 @@ class App {
 
       $file = $this->fileLoad($tag_info['fid']);
       $uri = $file->getFileUri();
-      $filepath = file_create_url($uri);
+      $filepath = file_url_transform_relative(file_create_url($uri));
       $alt = empty($tag_info['attributes']['alt']) ? '' : $tag_info['attributes']['alt'];
       $title = $alt;
       $height = empty($tag_info['attributes']['height']) ? '' : 'height="' . $tag_info['attributes']['height'] . '"';

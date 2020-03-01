@@ -3,7 +3,7 @@
 namespace Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup;
 
 use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
-use Drupal\Core\Entity\Entity as DrupalEntity;
+use Drupal\Core\Entity\EntityInterface as DrupalEntity;
 
 /**
  * Represents a Drupal entity for our purposes.
@@ -15,7 +15,7 @@ class Entity {
   /**
    * Constructor.
    *
-   * @param Drupal\Core\Entity\Entity $entity
+   * @param Drupal\Core\Entity\EntityInterface $entity
    *   The Drupal entity for which this object is a wrapper.
    */
   public function __construct(DrupalEntity $entity) {
