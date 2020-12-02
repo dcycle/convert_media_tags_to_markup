@@ -2,7 +2,6 @@
 #
 # Run all tests and linting.
 #
-
 set -e
 
 ./scripts/lint-php.sh

@@ -103,8 +103,18 @@ trait CommonUtilities {
    *
    * @param \Throwable $t
    *   A \throwable.
+   * @param mixed $message
+   *   The message to store in the log. If empty, a text that contains all
+   *   useful information about the passed-in exception is used.
+   * @param mixed $variables
+   *   Array of variables to replace in the message on display or NULL if
+   *   message is already translated or not possible to translate.
+   * @param mixed $severity
+   *   The severity of the message, as per RFC 3164.
+   * @param mixed $link
+   *   A link to associate with the message.
    */
-  public function watchdogThrowable(\Throwable $t, $message = NULL, $variables = array(), $severity = RfcLogLevel::ERROR, $link = NULL) {
+  public function watchdogThrowable(\Throwable $t, $message = NULL, $variables = [], $severity = RfcLogLevel::ERROR, $link = NULL) {
 
     // Use a default value if $message is not set.
     if (empty($message)) {
