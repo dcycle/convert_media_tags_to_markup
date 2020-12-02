@@ -36,7 +36,7 @@ class App {
     preg_match_all(self::MEDIA_WYSIWYG_TOKEN_REGEX, $text, $matches);
     if (!empty($matches[0])) {
       foreach ($matches[0] as $match) {
-        $replacement = $this->tokenToMarkup(array($match), FALSE);
+        $replacement = $this->tokenToMarkup([$match], FALSE);
         $rendered_text = str_replace($match, $replacement, $rendered_text, $count);
       }
     }
