@@ -23,7 +23,7 @@ OUTPUT=$(echo 'select * from users limit 1'|{ mysql --user=root --password=drupa
 if [[ "$OUTPUT" == *"ERROR"* ]]; then
   echo "Installing Drupal because we did not find an entry in the users table."
   drush si -y --db-url=mysql://root:drupal@mysql/drupal
-  drush en -y devel convert_media_tags_to_markup
+  drush en -y convert_media_tags_to_markup
 else
   echo "Assuming Drupal is already running, because there is a users table with at least one entry."
 fi
