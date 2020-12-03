@@ -45,11 +45,11 @@ Some users might find the code daunting, so you might want to change all such co
 
 * **Back up your database**;
 * In `/admin/structure/types/manage/YOUR_CONTENT_TYPE`'s publishing options, check "Create new revision", this will allow you to revert changes in case something goes wrong;
-* Run the following in _simulation mode_ (this is an example to change only pages, but you can apply it to any entity type and bundle):
+* Run the following (TRUE, the last parameter, means _simulation mode_) (this is an example to change only pages, but you can apply it to any entity type and bundle):
 
     drush ev "\Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup\DbReplacer::instance()->replaceAll('node', 'page', TRUE)";
 
-* Run the following in _live mode_ (this is an example to change only pages, but you can apply it to any entity type and bundle):
+* If you are satisfied with what you see, run the following (FALSE, the last parameter, means _live mode_) (this is an example to change only pages, but you can apply it to any entity type and bundle):
 
     drush ev "\Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup\DbReplacer::instance()->replaceAll('node', 'page', FALSE)";
 
