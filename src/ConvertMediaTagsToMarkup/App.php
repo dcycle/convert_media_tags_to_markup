@@ -73,7 +73,8 @@ class App {
 
       $file = $this->fileLoad($tag_info['fid']);
       $uri = $file->getFileUri();
-      $filepath = FileUrlGenerator::transformRelative(file_create_url($uri));
+      $filepath =  \Drupal::service('file_url_generator')->transformRelative(\Drupal::service('file_url_generator')
+      ->generateAbsoluteString($uri));
       $alt = empty($tag_info['attributes']['alt']) ? '' : $tag_info['attributes']['alt'];
       $title = $alt;
       $height = empty($tag_info['attributes']['height']) ? '' : 'height="' . $tag_info['attributes']['height'] . '"';
