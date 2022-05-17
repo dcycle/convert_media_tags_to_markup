@@ -17,10 +17,10 @@ trait Singleton {
   /**
    * Implements the Singleton design pattern.
    *
-   * Only one instance of the Concord class should exist per execution.
+   * Only one instance certain classes should exist per execution.
    *
-   * @return Concord
-   *   The single instance of the concord class.
+   * @return mixed
+   *   The single instance of the singleton class.
    */
   public static function instance() {
     // See http://stackoverflow.com/questions/15443458

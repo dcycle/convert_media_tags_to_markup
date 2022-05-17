@@ -16,7 +16,7 @@ class ConvertLegacyMediaTagsToMarkupTest extends TestCase {
   public function testSmoke() {
     $object = $this->getMockBuilder(ConvertLegacyMediaTagsToMarkup::class)
       // NULL = no methods are mocked; otherwise list the methods here.
-      ->setMethods(NULL)
+      ->addMethods([])
       ->disableOriginalConstructor()
       ->getMock();
 

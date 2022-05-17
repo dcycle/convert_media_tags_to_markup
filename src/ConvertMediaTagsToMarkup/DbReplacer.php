@@ -14,6 +14,13 @@ class DbReplacer {
   use CommonUtilities;
 
   /**
+   * Whether or not an error occurred.
+   *
+   * @var bool
+   */
+  protected $err;
+
+  /**
    * Log an error.
    *
    * @param string $err
@@ -56,7 +63,7 @@ class DbReplacer {
       $this->err($t->getMessage() . ' at ' . $t->getFile() . ':' . $t->getLine(), $log);
     }
 
-    if (!empty($this->err)) {
+    if ($this->err) {
       $log('Exiting with error code 1 because at least one error occurred during processing.' . PHP_EOL);
       exit(1);
     }

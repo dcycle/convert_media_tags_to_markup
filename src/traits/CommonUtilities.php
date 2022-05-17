@@ -56,8 +56,6 @@ trait CommonUtilities {
    *   Array of
    *   \Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup\Entity
    *   objects.
-   *
-   * @throws \Exception
    */
   protected function getAllEntities(string $type, string $bundle) : array {
     $values = [
@@ -79,8 +77,6 @@ trait CommonUtilities {
    *
    * @param string $string
    *   String to be logged.
-   *
-   * @throws Exception
    */
   public function watchdog(string $string) {
     \Drupal::logger('steward_common')->notice($string);
@@ -91,8 +87,6 @@ trait CommonUtilities {
    *
    * @param string $string
    *   String to be logged.
-   *
-   * @throws Exception
    */
   public function watchdogError(string $string) {
     \Drupal::logger('steward_common')->error($string);

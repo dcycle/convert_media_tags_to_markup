@@ -4,6 +4,7 @@ namespace Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup;
 
 use Drupal\convert_media_tags_to_markup\traits\Singleton;
 use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
+use Drupal\Core\File\FileUrlGenerator;
 
 /**
  * Represents the Closest Zip Code API.
@@ -27,8 +28,6 @@ class App {
    *
    * @return string
    *   The filtered text.
-   *
-   * @throws Exception
    */
   public function filterText(string $text) : string {
     $rendered_text = $text;
@@ -74,7 +73,7 @@ class App {
 
       $file = $this->fileLoad($tag_info['fid']);
       $uri = $file->getFileUri();
-      $filepath = file_url_transform_relative(file_create_url($uri));
+      $filepath = FileUrlGenerator::transformRelative(file_create_url($uri));
       $alt = empty($tag_info['attributes']['alt']) ? '' : $tag_info['attributes']['alt'];
       $title = $alt;
       $height = empty($tag_info['attributes']['height']) ? '' : 'height="' . $tag_info['attributes']['height'] . '"';

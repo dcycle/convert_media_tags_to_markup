@@ -5,6 +5,7 @@ namespace Drupal\convert_media_tags_to_markup\Plugin\Filter;
 use Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup\App;
 use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;
+use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
 
 /**
  * Provides a filter for converting legacy media tags to markup.
@@ -23,6 +24,8 @@ use Drupal\filter\Plugin\FilterBase;
  */
 class ConvertLegacyMediaTagsToMarkup extends FilterBase {
 
+  use CommonUtilities;
+
   /**
    * {@inheritdoc}
    */
@@ -30,8 +33,8 @@ class ConvertLegacyMediaTagsToMarkup extends FilterBase {
     try {
       return new FilterProcessResult(App::instance()->filterText($text));
     }
-    catch (\Exception $e) {
-      $this->watchdogException($e);
+    catch (\Exception $t) {
+      $this->watchdogThrowable($t);
       return new FilterProcessResult($text);
     }
   }
