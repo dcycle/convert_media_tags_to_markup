@@ -4,7 +4,6 @@ namespace Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup;
 
 use Drupal\convert_media_tags_to_markup\traits\Singleton;
 use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
-use Drupal\Core\File\FileUrlGenerator;
 
 /**
  * Represents the Closest Zip Code API.
@@ -48,7 +47,7 @@ class App {
    * This code is adapted from
    * http://cgit.drupalcode.org/media/tree/modules/media_wysiwyg/includes/media_wysiwyg.filter.inc?h=7.x-3.x.
    *
-   * @param string $match
+   * @param array $match
    *   Takes a match of tag code.
    * @param bool $wysiwyg
    *   Set to TRUE if called from within the WYSIWYG text area editor.
@@ -56,7 +55,8 @@ class App {
    * @return string
    *   The HTML markup representation of the tag, or an empty string on failure.
    */
-  public function tokenToMarkup($match, $wysiwyg = FALSE) {
+  public function tokenToMarkup(array $match, $wysiwyg = FALSE) {
+    print_r(['aaa', $match]);
     try {
       $match = str_replace("[[", "", $match);
       $match = str_replace("]]", "", $match);
@@ -73,8 +73,7 @@ class App {
 
       $file = $this->fileLoad($tag_info['fid']);
       $uri = $file->getFileUri();
-      $filepath =  \Drupal::service('file_url_generator')->transformRelative(\Drupal::service('file_url_generator')
-      ->generateAbsoluteString($uri));
+      $filepath = \Drupal::service('file_url_generator')->transformRelative(\Drupal::service('file_url_generator')->generateAbsoluteString($uri));
       $alt = empty($tag_info['attributes']['alt']) ? '' : $tag_info['attributes']['alt'];
       $title = $alt;
       $height = empty($tag_info['attributes']['height']) ? '' : 'height="' . $tag_info['attributes']['height'] . '"';
