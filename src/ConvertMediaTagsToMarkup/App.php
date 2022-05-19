@@ -27,8 +27,6 @@ class App {
    *
    * @return string
    *   The filtered text.
-   *
-   * @throws Exception
    */
   public function filterText(string $text) : string {
     $rendered_text = $text;
@@ -49,7 +47,7 @@ class App {
    * This code is adapted from
    * http://cgit.drupalcode.org/media/tree/modules/media_wysiwyg/includes/media_wysiwyg.filter.inc?h=7.x-3.x.
    *
-   * @param string $match
+   * @param array $match
    *   Takes a match of tag code.
    * @param bool $wysiwyg
    *   Set to TRUE if called from within the WYSIWYG text area editor.
@@ -57,7 +55,8 @@ class App {
    * @return string
    *   The HTML markup representation of the tag, or an empty string on failure.
    */
-  public function tokenToMarkup($match, $wysiwyg = FALSE) {
+  public function tokenToMarkup(array $match, $wysiwyg = FALSE) {
+    print_r(['aaa', $match]);
     try {
       $match = str_replace("[[", "", $match);
       $match = str_replace("]]", "", $match);
@@ -74,7 +73,7 @@ class App {
 
       $file = $this->fileLoad($tag_info['fid']);
       $uri = $file->getFileUri();
-      $filepath = file_url_transform_relative(file_create_url($uri));
+      $filepath = \Drupal::service('file_url_generator')->transformRelative(\Drupal::service('file_url_generator')->generateAbsoluteString($uri));
       $alt = empty($tag_info['attributes']['alt']) ? '' : $tag_info['attributes']['alt'];
       $title = $alt;
       $height = empty($tag_info['attributes']['height']) ? '' : 'height="' . $tag_info['attributes']['height'] . '"';

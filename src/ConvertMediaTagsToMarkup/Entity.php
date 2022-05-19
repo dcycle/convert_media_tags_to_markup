@@ -3,7 +3,7 @@
 namespace Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup;
 
 use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
-use Drupal\Core\Entity\EntityInterface as DrupalEntity;
+use Drupal\Core\Entity\EntityInterface;
 
 /**
  * Represents a Drupal entity for our purposes.
@@ -13,12 +13,19 @@ class Entity {
   use CommonUtilities;
 
   /**
+   * The Drupal entity for which this object is a wrapper.
+   *
+   * @var \Drupal\Core\Entity\EntityInterface
+   */
+  protected $entity;
+
+  /**
    * Constructor.
    *
-   * @param Drupal\Core\Entity\EntityInterface $entity
+   * @param \Drupal\Core\Entity\EntityInterface $entity
    *   The Drupal entity for which this object is a wrapper.
    */
-  public function __construct(DrupalEntity $entity) {
+  public function __construct(EntityInterface $entity) {
     $this->entity = $entity;
   }
 
@@ -29,19 +36,19 @@ class Entity {
    *   Whether or not to Simulate the results.
    * @param string $log
    *   For example "print_r" or "dpm".
-   *
-   * @throws Exception
    */
   public function process(bool $simulate = TRUE, string $log = 'print_r') {
-    foreach ($this->entity->getFields() as $fieldname => $field) {
-      $this->processField($fieldname, $field, $simulate, $log);
-    }
-    if ($simulate) {
-      $log('Not actually saving entity ' . $this->entity->id() . ' because we are in simulation mode.' . PHP_EOL);
-    }
-    else {
-      $log('Saving entity ' . $this->entity->id() . ' because we are not in simulation mode.' . PHP_EOL);
-      $this->entity->save();
+    if (method_exists($this->entity, 'getFields')) {
+      foreach ($this->entity->getFields() as $fieldname => $field) {
+        $this->processField($fieldname, $field, $simulate, $log);
+      }
+      if ($simulate) {
+        $log('Not actually saving entity ' . $this->entity->id() . ' because we are in simulation mode.' . PHP_EOL);
+      }
+      else {
+        $log('Saving entity ' . $this->entity->id() . ' because we are not in simulation mode.' . PHP_EOL);
+        $this->entity->save();
+      }
     }
   }
 
@@ -56,8 +63,6 @@ class Entity {
    *   Whether or not to Simulate the results.
    * @param string $log
    *   For example "print_r" or "dpm".
-   *
-   * @throws Exception
    */
   public function processField(string $fieldname, $field, bool $simulate = TRUE, $log = 'print_r') {
     $log('Processing field ' . $fieldname . ' of class ' . get_class($field) . ' for entity ' . $this->entity->id() . PHP_EOL);
