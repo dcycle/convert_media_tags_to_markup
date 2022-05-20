@@ -5,5 +5,5 @@
 set -e
 
 ./scripts/test.sh
-./scripts/deploy.sh 9
+./scripts/deploy.sh
 docker-compose down -v
