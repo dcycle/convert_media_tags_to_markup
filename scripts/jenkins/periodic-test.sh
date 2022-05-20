@@ -19,6 +19,6 @@ sleep 90
 
 ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no \
   root@"$IP" \
-  "git clone http://github.com/dcycle/convert_media_tags_to_markup && \
+  "git clone --branch working http://github.com/dcycle/convert_media_tags_to_markup && \
   cd convert_media_tags_to_markup && \
   ./scripts/ci.sh"
