@@ -24,7 +24,6 @@ echo ''
 echo '-----'
 echo 'Running the deploy script on the running containers. This installs'
 echo 'Drupal if it is not yet installed.'
-echo 'DEBUG 1'
 docker-compose exec -T drupal /bin/bash -c '/docker-resources/scripts/deploy-on-container.sh'
 
 echo ''

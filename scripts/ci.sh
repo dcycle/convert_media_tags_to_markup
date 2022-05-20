@@ -4,6 +4,6 @@
 #
 set -e
 
-# ./scripts/test.sh
+./scripts/test.sh
 ./scripts/deploy.sh
 docker-compose down -v
