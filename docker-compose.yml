@@ -8,6 +8,7 @@ services:
     image: dummy_image_required
     volumes:
       - ".:/var/www/html/modules/custom/convert_media_tags_to_markup"
+      - "./docker-resources/scripts:/docker-resources"
     working_dir: /var/www/html
 
   webserver:
