@@ -5,6 +5,11 @@
 #
 set -e
 
+if [ "$1" != "9" ] && [ "$1" != "10" ]; then
+  >&2 echo "Please specify 9 or 10"
+  exit 1;
+fi
+
 echo ''
 echo 'About to try to get the latest version of'
 echo 'https://hub.docker.com/r/dcycle/drupal/ from the Docker hub. This image'
@@ -18,7 +23,7 @@ echo '-----'
 echo 'About to start persistent (-d) containers based on the images defined'
 echo 'in ./Dockerfile and ./docker-compose.yml. We are also telling'
 echo 'docker-compose to rebuild the images if they are out of date.'
-docker-compose up -d --build
+docker-compose -f docker-compose.yml -f docker-compose."$1".yml up -d --build
 
 echo ''
 echo '-----'
