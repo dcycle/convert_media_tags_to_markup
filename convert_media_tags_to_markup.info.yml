@@ -1,5 +1,5 @@
 name: Convert Media Tags to Markup
 type: module
 description: 'Converts media tags to markup.'
-core_version_requirement: ^8 || ^10
+core_version_requirement: ^9 || ^10
 php: '8.x'
