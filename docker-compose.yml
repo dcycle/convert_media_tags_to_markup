@@ -7,7 +7,7 @@ services:
   drupal:
     image: dummy_image_required
     volumes:
-      - ".:/var/www/html/modules/custom/expose_status"
+      - ".:/var/www/html/modules/custom/convert_media_tags_to_markup"
     working_dir: /var/www/html
 
   webserver:
@@ -39,4 +39,4 @@ services:
 networks:
   default:
     external:
-      name: expose_status_default
+      name: convert_media_tags_to_markup_default
