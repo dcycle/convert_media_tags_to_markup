@@ -20,11 +20,11 @@ docker pull dcycle/drupal:9php8
 
 echo ''
 echo '-----'
-echo 'About to create the expose_status_default network if it does not exist,'
+echo 'About to create the convert_media_tags_to_markup_default network if it does not exist,'
 echo 'because we need it to have a predictable name when we try to connect'
 echo 'other containers to it (for example browser testers).'
 echo 'See https://github.com/docker/compose/issues/3736.'
-docker network ls | grep expose_status_default || docker network create expose_status_default
+docker network ls | grep convert_media_tags_to_markup_default || docker network create convert_media_tags_to_markup_default
 
 echo ''
 echo '-----'
