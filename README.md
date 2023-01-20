@@ -62,7 +62,7 @@ The code is available on [GitHub](https://github.com/dcycle/convert_media_tags_t
 
 Automated testing is on [CircleCI](https://circleci.com/gh/dcycle/convert_media_tags_to_markup).
 
-Install Docker and run `./scripts/deploy.sh` (for Drupal 8) or `./scripts/deploy.sh 9` (for Drupal 9).
+Install Docker and run `./scripts/deploy.sh 10` (for Drupal 10) or `./scripts/deploy.sh 9` (for Drupal 9).
 
 When you are done developing run `docker-compose down -v`.
 
