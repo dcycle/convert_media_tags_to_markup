@@ -56,7 +56,6 @@ class App {
    *   The HTML markup representation of the tag, or an empty string on failure.
    */
   public function tokenToMarkup(array $match, $wysiwyg = FALSE) {
-    print_r(['aaa', $match]);
     try {
       $match = str_replace("[[", "", $match);
       $match = str_replace("]]", "", $match);
