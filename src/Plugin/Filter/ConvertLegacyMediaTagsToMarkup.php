@@ -19,7 +19,7 @@ use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
  *   module = "convert_media_tags_to_markup",
  *   title = @Translation("Convert Legacy Media Tags to Markup"),
  *   description = @Translation("See https://github.com/dcycle/convert_media_tags_to_markup for details."),
- *   type = Drupal\filter\Plugin\FilterInterface::TYPE_MARKUP_LANGUAGE,
+ *   type = Drupal\filter\Plugin\FilterInterface::TYPE_TRANSFORM_IRREVERSIBLE,
  * )
  */
 class ConvertLegacyMediaTagsToMarkup extends FilterBase {
