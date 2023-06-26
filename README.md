@@ -14,7 +14,7 @@ This code is probably the result of an import from a Drupal 7 site which used [t
 Usage
 -----
 
-You can install this module as any other Drupal 8 or 9 module and it should work once you add the "Convert Legacy Media Tags to Markup" text filter to your text formats.
+You can install this module as any other Drupal module and it should work once you add the "Convert Legacy Media Tags to Markup" text filter to your text formats.
 
 If you want to evaluate this module before using it:
 
