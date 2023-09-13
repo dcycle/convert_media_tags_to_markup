@@ -2,8 +2,8 @@
 
 namespace Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup;
 
-use Drupal\convert_media_tags_to_markup\traits\Singleton;
 use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
+use Drupal\convert_media_tags_to_markup\traits\Singleton;
 
 /**
  * Code to replace all code in the database.

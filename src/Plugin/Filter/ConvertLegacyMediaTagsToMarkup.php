@@ -3,9 +3,9 @@
 namespace Drupal\convert_media_tags_to_markup\Plugin\Filter;
 
 use Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup\App;
+use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
 use Drupal\filter\FilterProcessResult;
 use Drupal\filter\Plugin\FilterBase;
-use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
 
 /**
  * Provides a filter for converting legacy media tags to markup.
