@@ -2,9 +2,9 @@
 
 namespace Drupal\convert_media_tags_to_markup\traits;
 
-use Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup\Entity;
 use Drupal\Component\Serialization\Json;
 use Drupal\Component\Utility\Html;
+use Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup\Entity;
 use Drupal\Core\Logger\RfcLogLevel;
 use Drupal\Core\Utility\Error;
 use Drupal\file\Entity\File;
