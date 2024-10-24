@@ -16,7 +16,13 @@ echo ''
 echo './scripts/lint-php-fix.sh'
 echo ''
 
-docker run --rm -v "$(pwd)"/src:/code dcycle/php-lint:3 \
-  --standard=DrupalPractice /code
-docker run --rm -v "$(pwd)"/src:/code dcycle/php-lint:3 \
-  --standard=Drupal /code
+docker run --rm \
+  -v "$(pwd)"/src:/code \
+  dcycle/php-lint:3 \
+  --standard=DrupalPractice \
+  /code
+docker run --rm \
+  -v "$(pwd)"/src:/code \
+  dcycle/php-lint:3 \
+  --standard=Drupal \
+  /code

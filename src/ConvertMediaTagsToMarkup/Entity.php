@@ -2,8 +2,8 @@
 
 namespace Drupal\convert_media_tags_to_markup\ConvertMediaTagsToMarkup;
 
-use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\convert_media_tags_to_markup\traits\CommonUtilities;
 
 /**
  * Represents a Drupal entity for our purposes.
