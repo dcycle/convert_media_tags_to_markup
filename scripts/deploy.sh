@@ -5,8 +5,8 @@
 #
 set -e
 
-if [ "$1" != "9" ] && [ "$1" != "10" ]; then
-  >&2 echo "Please specify 9 or 10"
+if [ "$1" != "11" ] && [ "$1" != "10" ]; then
+  >&2 echo "Please specify 11 or 10"
   exit 1;
 fi
 
@@ -16,8 +16,8 @@ echo 'https://hub.docker.com/r/dcycle/drupal/ from the Docker hub. This image'
 echo 'is updated automatically every Wednesday with the latest version of'
 echo 'Drupal and Drush. If the image has changed since the latest deployment,'
 echo 'the environment will be completely rebuilt based on this image.'
-if [ "$1" == "9" ]; then
-  docker pull dcycle/drupal:9php8-fpm-alpine
+if [ "$1" == "11" ]; then
+  docker pull dcycle/drupal:11
 else
   docker pull dcycle/drupal:10-fpm-alpine
 fi
